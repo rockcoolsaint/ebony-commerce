@@ -24,8 +24,24 @@ export default function App() {
   // console.log(useDeviceOrientation());
   const {landscape} = useDeviceOrientation();
   return (
-    // <WelcomeScreen />
-    <ViewImageScreen />
+    <View
+      style={{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center"
+      }}
+    >
+      <View
+        style={{
+          backgroundColor: "dodgerblue",
+          width: 100,
+          height: 100,
+          borderWidth: 10,
+          borderColor: "royalblue",
+          borderRadius: 50,
+        }}
+      ></View>
+    </View>
   );
 }
 
