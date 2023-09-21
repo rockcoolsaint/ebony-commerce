@@ -31,7 +31,7 @@ export default function App() {
         alignItems: "center"
       }}
     >
-      <View
+      {/* <View
         style={{
           backgroundColor: "dodgerblue",
           width: 100,
@@ -39,6 +39,16 @@ export default function App() {
           borderWidth: 10,
           borderColor: "royalblue",
           borderRadius: 50,
+        }}
+      ></View> */}
+      <View
+        style={{
+          backgroundColor: "dodgerblue",
+          width: 100,
+          height: 100,
+          shadowColor: "grey",
+          shadowOffset: {width: 10, elevation: 10},
+          shadowOpacity: 1
         }}
       ></View>
     </View>
