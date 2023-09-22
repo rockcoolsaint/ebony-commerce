@@ -15,9 +15,11 @@ import {
   StatusBar,
   Dimensions
 } from 'react-native';
+import {MaterialCommunityIcons} from '@expo/vector-icons'
 import { useDimensions, useDeviceOrientation } from "@react-native-community/hooks";
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
+import AppText from './app/components/AppText/AppText';
 
 export default function App() {
   const handePress = () => console.log("Text pressed");
@@ -31,26 +33,8 @@ export default function App() {
         alignItems: "center"
       }}
     >
-      {/* <View
-        style={{
-          backgroundColor: "dodgerblue",
-          width: 100,
-          height: 100,
-          borderWidth: 10,
-          borderColor: "royalblue",
-          borderRadius: 50,
-        }}
-      ></View> */}
-      <View
-        style={{
-          backgroundColor: "dodgerblue",
-          width: 100,
-          height: 100,
-          shadowColor: "grey",
-          shadowOffset: {width: 10, elevation: 10},
-          shadowOpacity: 1
-        }}
-      ></View>
+      <MaterialCommunityIcons name='email' size={200} color="dodgerblue" />
+      <AppText>I love React Native!</AppText>
     </View>
   );
 }
