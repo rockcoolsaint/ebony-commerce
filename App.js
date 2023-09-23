@@ -20,22 +20,25 @@ import { useDimensions, useDeviceOrientation } from "@react-native-community/hoo
 import WelcomeScreen from './app/screens/WelcomeScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
 import AppText from './app/components/AppText/AppText';
+import AppButton from './app/components/AppButton';
 
 export default function App() {
   const handePress = () => console.log("Text pressed");
   // console.log(useDeviceOrientation());
   const {landscape} = useDeviceOrientation();
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center"
-      }}
-    >
-      <MaterialCommunityIcons name='email' size={200} color="dodgerblue" />
-      <AppText>I love React Native!</AppText>
-    </View>
+    // <View
+    //   style={{
+    //     flex: 1,
+    //     justifyContent: "center",
+    //     alignItems: "center"
+    //   }}
+    // >
+    //   <MaterialCommunityIcons name='email' size={200} color="dodgerblue" />
+    //   <AppText>I love React Native!</AppText>
+    //   <AppButton title="Login" onPress={() => console.log("Tapped")}/>
+    // </View>
+    <WelcomeScreen/>
   );
 }
 
