@@ -21,24 +21,21 @@ import WelcomeScreen from './app/screens/WelcomeScreen';
 import ViewImageScreen from './app/screens/ViewImageScreen';
 import AppText from './app/components/AppText/AppText';
 import AppButton from './app/components/AppButton';
+import Card from './app/components/Card';
 
 export default function App() {
-  const handePress = () => console.log("Text pressed");
-  // console.log(useDeviceOrientation());
-  const {landscape} = useDeviceOrientation();
   return (
-    // <View
-    //   style={{
-    //     flex: 1,
-    //     justifyContent: "center",
-    //     alignItems: "center"
-    //   }}
-    // >
-    //   <MaterialCommunityIcons name='email' size={200} color="dodgerblue" />
-    //   <AppText>I love React Native!</AppText>
-    //   <AppButton title="Login" onPress={() => console.log("Tapped")}/>
-    // </View>
-    <WelcomeScreen/>
+    <View style={{
+      backgroundColor: '#f8f4f4',
+      padding: 20,
+      paddingTop: 100
+    }}>
+      <Card
+        title="Red jacket for sale"
+        subTitle="$100"
+        image={require("./app/assets/jacket.jpg")}
+      />
+    </View>
   );
 }
 
