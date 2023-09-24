@@ -14,7 +14,8 @@ import {
   Platform,
   StatusBar,
   Dimensions,
-  TextInput
+  TextInput,
+  Switch
 } from 'react-native';
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import { useDimensions, useDeviceOrientation } from "@react-native-community/hooks";
@@ -29,7 +30,8 @@ import { useState } from 'react';
 import AppTextInput from './app/components/AppTextInput';
 
 export default function App() {
-  const [firstName, setFirstName] = useState('');
+  // const [firstName, setFirstName] = useState('');
+  const [isNew, setIsNew] = useState(false);
 
   return (
     <Screen>
@@ -47,7 +49,9 @@ export default function App() {
         }}
       /> */}
 
-      <AppTextInput placeholder="Username" icon="email" />
+      {/* <AppTextInput placeholder="Username" icon="email" /> */}
+
+      <Switch value={isNew} onValueChange={(newValue) => setIsNew(newValue)} />
     </Screen>
   );
 }
