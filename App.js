@@ -26,13 +26,14 @@ import Card from './app/components/Card';
 import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
 import Screen from './app/components/Screen';
 import { useState } from 'react';
+import AppTextInput from './app/components/AppTextInput';
 
 export default function App() {
   const [firstName, setFirstName] = useState('');
 
   return (
     <Screen>
-      <Text>{firstName}</Text>
+      {/* <Text>{firstName}</Text>
       <TextInput
         maxLength={5}
         keyboardType="numeric"
@@ -44,7 +45,9 @@ export default function App() {
           borderBottomColor: "color",
           borderBottomWidth: 1,
         }}
-      />
+      /> */}
+
+      <AppTextInput placeholder="Username" icon="email" />
     </Screen>
   );
 }
