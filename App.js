@@ -13,7 +13,8 @@ import {
   Button,
   Platform,
   StatusBar,
-  Dimensions
+  Dimensions,
+  TextInput
 } from 'react-native';
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import { useDimensions, useDeviceOrientation } from "@react-native-community/hooks";
@@ -23,24 +24,28 @@ import AppText from './app/components/AppText/AppText';
 import AppButton from './app/components/AppButton';
 import Card from './app/components/Card';
 import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
+import Screen from './app/components/Screen';
+import { useState } from 'react';
 
 export default function App() {
+  const [firstName, setFirstName] = useState('');
+
   return (
-    // <View style={{
-    //   backgroundColor: '#f8f4f4',
-    //   padding: 20,
-    //   paddingTop: 100
-    // }}>
-    //   <Card
-    //     title="Red jacket for sale"
-    //     subTitle="$100"
-    //     image={require("./app/assets/jacket.jpg")}
-    //   />
-    // </View>
-
-    // <ListingDetailsScreen />
-
-    <ViewImageScreen />
+    <Screen>
+      <Text>{firstName}</Text>
+      <TextInput
+        maxLength={5}
+        keyboardType="numeric"
+        clearButtonMode='always'
+        secureTextEntry={true}
+        onChangeText={text => setFirstName(text)}
+        placeholder='First Name'
+        style={{
+          borderBottomColor: "color",
+          borderBottomWidth: 1,
+        }}
+      />
+    </Screen>
   );
 }
 
