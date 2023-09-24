@@ -28,6 +28,7 @@ import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
 import Screen from './app/components/Screen';
 import { useState } from 'react';
 import AppTextInput from './app/components/AppTextInput';
+import AppPicker from './app/components/AppPicker';
 
 export default function App() {
   // const [firstName, setFirstName] = useState('');
@@ -51,7 +52,10 @@ export default function App() {
 
       {/* <AppTextInput placeholder="Username" icon="email" /> */}
 
-      <Switch value={isNew} onValueChange={(newValue) => setIsNew(newValue)} />
+      {/* <Switch value={isNew} onValueChange={(newValue) => setIsNew(newValue)} /> */}
+
+      <AppPicker icon="apps" placeholder={"Category"} />
+      <AppTextInput icon="email" placeholder="Email" />
     </Screen>
   );
 }
