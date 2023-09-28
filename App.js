@@ -47,10 +47,10 @@ export default function App() {
 
   return (
     // <LoginScreen/>
-    // <ListingEditScreen/>
-    <GestureHandlerRootView style={{flex: 1}}>
-      <MessagesScreen/>
-    </GestureHandlerRootView>
+    <ListingEditScreen/>
+    // <GestureHandlerRootView style={{flex: 1}}>
+    //   <MessagesScreen/>
+    // </GestureHandlerRootView>
   );
 }
 
