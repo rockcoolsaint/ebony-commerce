@@ -31,6 +31,8 @@ import { useState } from 'react';
 // import AppPicker from './app/components/AppPicker';
 import LoginScreen from './app/screens/LoginScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
+import MessagesScreen from './app/screens/MessagesScreen';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 // const categories = [
 //   { label: "Furniture", value: 1 },
@@ -45,7 +47,10 @@ export default function App() {
 
   return (
     // <LoginScreen/>
-    <ListingEditScreen/>
+    // <ListingEditScreen/>
+    <GestureHandlerRootView style={{flex: 1}}>
+      <MessagesScreen/>
+    </GestureHandlerRootView>
   );
 }
 
