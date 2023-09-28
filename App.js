@@ -30,20 +30,22 @@ import { useState } from 'react';
 // import AppTextInput from './app/components/AppTextInput';
 // import AppPicker from './app/components/AppPicker';
 import LoginScreen from './app/screens/LoginScreen';
+import ListingEditScreen from './app/screens/ListingEditScreen';
 
-const categories = [
-  { label: "Furniture", value: 1 },
-  { label: "Clothing", value: 2 },
-  { label: "Cameras", value: 3 },
-]
+// const categories = [
+//   { label: "Furniture", value: 1 },
+//   { label: "Clothing", value: 2 },
+//   { label: "Cameras", value: 3 },
+// ]
 
 export default function App() {
   // const [firstName, setFirstName] = useState('');
   // const [isNew, setIsNew] = useState(false);
-  const [category, setCategory] = useState(categories[0]);
+  // const [category, setCategory] = useState(categories[0]);
 
   return (
-    <LoginScreen/>
+    // <LoginScreen/>
+    <ListingEditScreen/>
   );
 }
 
