@@ -43,7 +43,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 export default function App() {
   // const [firstName, setFirstName] = useState('');
   // const [isNew, setIsNew] = useState(false);
-  // const [category, setCategory] = useState(categories[0]);
+  const [category, setCategory] = useState();
 
   return (
     // <LoginScreen/>
