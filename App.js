@@ -26,13 +26,14 @@ import AppButton from './app/components/AppButton';
 import Card from './app/components/Card';
 import ListingDetailsScreen from './app/screens/ListingDetailsScreen';
 import Screen from './app/components/Screen';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 // import AppTextInput from './app/components/AppTextInput';
 // import AppPicker from './app/components/AppPicker';
 import LoginScreen from './app/screens/LoginScreen';
 import ListingEditScreen from './app/screens/ListingEditScreen';
 import MessagesScreen from './app/screens/MessagesScreen';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import * as ImagePicker from "expo-image-picker";
 
 // const categories = [
 //   { label: "Furniture", value: 1 },
@@ -45,12 +46,25 @@ export default function App() {
   // const [isNew, setIsNew] = useState(false);
   const [category, setCategory] = useState();
 
+  requestPermission = async () => {
+    const {granted} = await ImagePicker.getMediaLibraryPermissionsAsync();
+    if (!granted)
+      alert('You need to enable permission to access the library')
+  }
+
+
+  useEffect(() => {
+     requestPermission();
+  }, [])
+
   return (
     // <LoginScreen/>
-    <ListingEditScreen/>
+    // <ListingEditScreen/>
     // <GestureHandlerRootView style={{flex: 1}}>
     //   <MessagesScreen/>
     // </GestureHandlerRootView>
+
+    <Screen></Screen>
   );
 }
 
