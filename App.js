@@ -35,6 +35,7 @@ import MessagesScreen from './app/screens/MessagesScreen';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from 'expo-permissions';
+import ImageInput from './app/components/ImageInput';
 
 // const categories = [
 //   { label: "Furniture", value: 1 },
@@ -49,7 +50,7 @@ export default function App() {
 
   const [imageUri, setImageUri] = useState();
 
-  requestPermission = async () => {
+  const requestPermission = async () => {
     const {granted} = await ImagePicker.getMediaLibraryPermissionsAsync();
     if (!granted)
       alert('You need to enable permission to access the library')
@@ -78,8 +79,12 @@ export default function App() {
     // </GestureHandlerRootView>
 
     <Screen>
-      <Button title='Select Image' onPress={selectImage} />
-      <Image source={{ uri: imageUri}} style={{ width: 200, height: 200 }} />
+      {/* <Button title='Select Image' onPress={selectImage} />
+      <Image source={{ uri: imageUri}} style={{ width: 200, height: 200 }} /> */}
+      <ImageInput
+        imageUri={imageUri}
+        onChangeImage={(uri) => setImageUri(uri)}
+      />
     </Screen>
   );
 }
