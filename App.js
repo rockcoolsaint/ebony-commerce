@@ -35,7 +35,7 @@ import MessagesScreen from './app/screens/MessagesScreen';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from 'expo-permissions';
-import ImageInput from './app/components/ImageInput';
+import ImageInputList from './app/components/ImageInputList';
 
 // const categories = [
 //   { label: "Furniture", value: 1 },
@@ -47,43 +47,22 @@ export default function App() {
   // const [firstName, setFirstName] = useState('');
   // const [isNew, setIsNew] = useState(false);
   // const [category, setCategory] = useState();
+  const [imageUris, setImageUris] = useState([]);
 
-  const [imageUri, setImageUri] = useState();
-
-  const requestPermission = async () => {
-    const {granted} = await ImagePicker.getMediaLibraryPermissionsAsync();
-    if (!granted)
-      alert('You need to enable permission to access the library')
+  const handleAdd = uri => {
+    setImageUris([...imageUris, uri]);
   }
 
-
-  useEffect(() => {
-     requestPermission();
-  }, [])
-
-  const selectImage = async () => {
-    try {
-      const result = await ImagePicker.launchImageLibraryAsync();
-      if (!result.canceled)
-        setImageUri(result.assets[0].uri)
-    } catch (error) {
-      console.log("Error reading image", error)
-    }
+  const handleRemove = uri => {
+    setImageUris(imageUris.filter(imageUri => imageUri !== uri))
   }
 
   return (
-    // <LoginScreen/>
-    // <ListingEditScreen/>
-    // <GestureHandlerRootView style={{flex: 1}}>
-    //   <MessagesScreen/>
-    // </GestureHandlerRootView>
-
     <Screen>
-      {/* <Button title='Select Image' onPress={selectImage} />
-      <Image source={{ uri: imageUri}} style={{ width: 200, height: 200 }} /> */}
-      <ImageInput
-        imageUri={imageUri}
-        onChangeImage={(uri) => setImageUri(uri)}
+      <ImageInputList
+        imageUris={imageUris}
+        onAddImage={handleAdd}
+        onRemoveImage={handleRemove}
       />
     </Screen>
   );
