@@ -39,6 +39,7 @@ import ImageInputList from './app/components/ImageInputList';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import AuthNavigator from './app/navigation/AuthNavigator';
 
 // const categories = [
 //   { label: "Furniture", value: 1 },
@@ -136,7 +137,8 @@ export default function App() {
   return (
     <NavigationContainer>
       {/* <StackNavigator /> */}
-      <TabNavigator/>
+      {/* <TabNavigator/> */}
+      <AuthNavigator />
     </NavigationContainer>
   );
 }
