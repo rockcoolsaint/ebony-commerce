@@ -36,6 +36,8 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from 'expo-permissions';
 import ImageInputList from './app/components/ImageInputList';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
 
 // const categories = [
 //   { label: "Furniture", value: 1 },
@@ -47,18 +49,40 @@ export default function App() {
   // const [firstName, setFirstName] = useState('');
   // const [isNew, setIsNew] = useState(false);
   // const [category, setCategory] = useState();
-  const [imageUris, setImageUris] = useState([]);
+  // const [imageUris, setImageUris] = useState([]);
 
-  const handleAdd = uri => {
-    setImageUris([...imageUris, uri]);
-  }
+  // const handleAdd = uri => {
+  //   setImageUris([...imageUris, uri]);
+  // }
 
-  const handleRemove = uri => {
-    setImageUris(imageUris.filter(imageUri => imageUri !== uri))
-  }
+  // const handleRemove = uri => {
+  //   setImageUris(imageUris.filter(imageUri => imageUri !== uri))
+  // }
+
+  const Tweets = () => (
+    <Screen>
+      <Text>Tweets</Text>
+    </Screen>
+  )
+
+  const TweetDetails = () => (
+    <Screen>
+      <Text>Tweets Details</Text>
+    </Screen>
+  )
+
+  const Stack = createNativeStackNavigator();
+  const StackNavigator = () => (
+    <Stack.Navigator>
+      <Stack.Screen name='Tweets' component={Tweets} />
+      <Stack.Screen name='TweetDetails' component={TweetDetails} />
+    </Stack.Navigator>
+  )
 
   return (
-    <ListingEditScreen/>
+    <NavigationContainer>
+      <StackNavigator />
+    </NavigationContainer>
   );
 }
 
