@@ -38,6 +38,7 @@ import * as Permissions from 'expo-permissions';
 import ImageInputList from './app/components/ImageInputList';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 // const categories = [
 //   { label: "Furniture", value: 1 },
@@ -110,10 +111,32 @@ export default function App() {
       />
     </Stack.Navigator>
   )
+  const Account = () => <Screen><Text>Account</Text></Screen>
+  const Tab = createBottomTabNavigator();
+  const TabNavigator = () => (
+    <Tab.Navigator
+      screenOptions={{
+        tabBarActiveBackgroundColor: "tomato",
+        tabBarActiveTintColor: "white",
+        tabBarInactiveBackgroundColor: "#eee",
+        tabBarInactiveTintColor: "black"
+      }}
+    >
+      <Tab.Screen
+        name="Feed"
+        component={Tweets}
+        options={{
+          tabBarIcon: ({size, color}) => <MaterialCommunityIcons name='home' size={size} color={color} />
+        }}
+      />
+      <Tab.Screen name="Account" component={Account} />
+    </Tab.Navigator>
+  )
 
   return (
     <NavigationContainer>
-      <StackNavigator />
+      {/* <StackNavigator /> */}
+      <TabNavigator/>
     </NavigationContainer>
   );
 }
