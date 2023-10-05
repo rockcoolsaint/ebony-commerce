@@ -124,12 +124,12 @@ export default function App() {
     >
       <Tab.Screen
         name="Feed"
-        component={Tweets}
-        options={{
-          tabBarIcon: ({size, color}) => <MaterialCommunityIcons name='home' size={size} color={color} />
-        }}
+        component={FeedNavigator}
+        // options={{
+        //   tabBarIcon: ({size, color}) => <MaterialCommunityIcons name='home' size={size} color={color} />
+        // }}
       />
-      <Tab.Screen name="Account" component={Account} />
+      <Tab.Screen name="Account" component={AccountNavigator} />
     </Tab.Navigator>
   )
 
