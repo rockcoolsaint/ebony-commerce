@@ -9,6 +9,7 @@ import listingsApi from "../api/listings";
 import AppText from "../components/AppText";
 import AppButton from "../components/AppButton";
 import ActivityIndicator from "../components/ActivityIndicator";
+import useApi from "../hooks/useApi";
 
 // const listings = [
 //   {
@@ -26,35 +27,33 @@ import ActivityIndicator from "../components/ActivityIndicator";
 // ];
 
 function ListingsScreen({ navigation }) {
-  const [listings, setListings] = useState([]);
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const getListingsApi = useApi(listingsApi.getListings);
 
   useEffect(() => {
-    loadListings();
+    getListingsApi.request(1, 2, 3);
   }, []);
 
-  const loadListings = async () => {
-    setLoading(true);
-    const response = await listingsApi.getListings();
-    setLoading(false);
+  // const loadListings = async () => {
+  //   setLoading(true);
+  //   const response = await listingsApi.getListings();
+  //   setLoading(false);
 
-    if (!response.ok) return setError(true);
+  //   if (!response.ok) return setError(true);
 
-    setError(false);
-    setListings(response.data);
-  }
+  //   setError(false);
+  //   setListings(response.data);
+  // }
 
   return (
     <Screen style={styles.screen}>
-      {error && <>
+      {getListingsApi.error && <>
         <AppText>Couldn't retrieve the listings.</AppText>
         <AppButton title="Retry" onPress={loadListings} />
       </>}
       {/* <ActivityIndicator animating={true} size="large" /> */}
-      <ActivityIndicator visible={loading} />
+      <ActivityIndicator visible={getListingsApi.loading} />
       <FlatList
-        data={listings}
+        data={getListingsApi.data}
         keyExtractor={(listing) => listing.id.toString()}
         renderItem={({ item }) => (
           <Card
