@@ -6,14 +6,27 @@ export default useApi = (apiFunc) => {
   const [loading, setLoading] = useState(false);
 
   const request = async (...args) => {
-    setLoading(true);
-    const response = await apiFunc(...args);
-    setLoading(false);
+    // setLoading(true);
+    // const response = await apiFunc(...args);
+    // setLoading(false);
 
-    if (!response.ok) return setError(true);
+    // if (!response.ok) return setError(true);
 
-    setError(false);
-    setData(response.data);
+    // setError(false);
+    // setData(response.data);
+
+    try {
+      setLoading(true);
+      const response = await apiFunc(...args);
+      setLoading(false);
+
+      if (!response) return setError(true);
+
+      setError(false);
+      setData(response.data);
+    } catch (error) {
+      console.log(error)
+    }
   };
 
   return { data, error, loading, request }
