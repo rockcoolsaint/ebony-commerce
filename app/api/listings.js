@@ -1,11 +1,9 @@
 import client from "./client";
-import axios from "axios";
-const FormData = global.FormData;
 
 const endpoint = '/listings';
 const getListings = () => client.get(endpoint);
 
-const addListing = async listing => {
+const addListing = async (listing, onUploadProgress) => {
   const data = new FormData();
   data.append("title", listing.title);
   data.append("price", listing.price);
@@ -22,20 +20,13 @@ const addListing = async listing => {
   if (listing.location)
     data.append("location", JSON.stringify(listing.location));
 
-  // return await client.post(endpoint, JSON.stringify(data), {
-  //   headers: {
-  //     'Content-Type': 'multipart/form-data',
-  //   }
-  // });
-  const config = {
-    method: "post",
-    headers: {
-      'Content-Type': 'multipart/form-data',
-    },
-    body: data
-  }
-
-  return await fetch(`http://192.168.8.159:9000/api/listings`, config);
+  return await client.post(endpoint, data, {
+    transformRequest: [(data, headers) => {
+      return data
+    }],
+    onUploadProgress: progress =>
+      onUploadProgress(progress.loaded / progress.total),
+  });
 }
 
 export default {

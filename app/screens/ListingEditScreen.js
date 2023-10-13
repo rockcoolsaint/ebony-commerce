@@ -84,13 +84,12 @@ function ListingEditScreen() {
   const location = useLocation();
 
   const handleSubmit =  async (listing) => {
-    try {
-      const result = await listingsApi.addListing({ ...listing, location });
+      const result = await listingsApi.addListing(
+        { ...listing, location },
+        progress => console.log(progress));
+
       if (!result.ok) return alert('Could not save the listing.')
       alert('Success');
-    } catch (error) {
-      console.log(error)
-    }
   }
   
   return (
