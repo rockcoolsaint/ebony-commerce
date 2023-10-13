@@ -87,15 +87,16 @@ function ListingEditScreen() {
   const [progress, setProgress] = useState(0);
 
   const handleSubmit =  async (listing) => {
-      setUploadVisible(true)
-      const result = await listingsApi.addListing(
-        { ...listing, location },
-        (progress) => setProgress(progress)
-      );
-      setUploadVisible(false);
+    setProgress(0);
+    setUploadVisible(true);
+    const result = await listingsApi.addListing(
+      { ...listing, location },
+      (progress) => setProgress(progress)
+    );
+    setUploadVisible(false);
 
-      if (!result.ok) return alert('Could not save the listing.')
-      alert('Success');
+    if (!result.ok) return alert('Could not save the listing.')
+    alert('Success');
   }
   
   return (
