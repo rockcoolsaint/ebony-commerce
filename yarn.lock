@@ -2778,6 +2778,11 @@
   "resolved" "https://registry.npmjs.org/crypt/-/crypt-0.0.2.tgz"
   "version" "0.0.2"
 
+"crypto-js@^3.1.9-1":
+  "integrity" "sha512-DIT51nX0dCfKltpRiXV+/TVZq+Qq2NgF4644+K7Ttnla7zEzqc+kjJyiB96BHNyUTBxyjzRcZYpUdZa+QAqi6Q=="
+  "resolved" "https://registry.npmjs.org/crypto-js/-/crypto-js-3.3.0.tgz"
+  "version" "3.3.0"
+
 "crypto-random-string@^1.0.0":
   "integrity" "sha512-GsVpkFPlycH7/fRR7Dhcmnoii54gV1nz7y4CWyeFS14N+JVBBhY+r8amRHE4BwSYal7BPTDp8isvAlCxyFt3Hg=="
   "resolved" "https://registry.npmjs.org/crypto-random-string/-/crypto-random-string-1.0.0.tgz"
@@ -3170,6 +3175,11 @@
     "path-browserify" "^1.0.0"
     "url-parse" "^1.5.9"
 
+"expo-blur@*", "expo-blur@~12.0.1":
+  "integrity" "sha512-7oF/xRIFJukM4/qL6ejZ4Z/4YcVExvBPsBrz7rGYz6PtgAkWwYFR62+ExZOzTEG4hgoPPmlnt1ncimsk/MYUgQ=="
+  "resolved" "https://registry.npmjs.org/expo-blur/-/expo-blur-12.0.1.tgz"
+  "version" "12.0.1"
+
 "expo-constants@~14.0.0", "expo-constants@~14.0.2":
   "integrity" "sha512-wzV3nrzTXTI8yG0tfas3fnqCfKV6YE+1GphEREyVDAShEB6mBInX1b6HgtpHFy2wOtnml+lPVmTCeGtjjLnZhA=="
   "resolved" "https://registry.npmjs.org/expo-constants/-/expo-constants-14.0.2.tgz"
@@ -3183,7 +3193,7 @@
   "resolved" "https://registry.npmjs.org/expo-error-recovery/-/expo-error-recovery-4.0.1.tgz"
   "version" "4.0.1"
 
-"expo-file-system@~15.1.0", "expo-file-system@~15.1.1":
+"expo-file-system@*", "expo-file-system@~15.1.0", "expo-file-system@~15.1.1":
   "integrity" "sha512-MYYDKxjLo9VOkvGHqym5EOAUS+ero9O66X5zI+EXJzqNznKvnfScdXeeAaQzShmWtmLkdVDCoYFGOaTvTA1wTQ=="
   "resolved" "https://registry.npmjs.org/expo-file-system/-/expo-file-system-15.1.1.tgz"
   "version" "15.1.1"
@@ -5647,6 +5657,14 @@
     "flow-parser" "^0.121.0"
     "jscodeshift" "^0.13.1"
     "nullthrows" "^1.1.1"
+
+"react-native-expo-image-cache@^4.1.0":
+  "integrity" "sha512-U6xHtuyalNZThhM11lu4+mRNSpJFkdh4dSLbWkKAj5QfY63cKlTnDVtv8c88njn71GHL4exEzf8hNKBMWhH37Q=="
+  "resolved" "https://registry.npmjs.org/react-native-expo-image-cache/-/react-native-expo-image-cache-4.1.0.tgz"
+  "version" "4.1.0"
+  dependencies:
+    "crypto-js" "^3.1.9-1"
+    "lodash" "^4.17.4"
 
 "react-native-gesture-handler@^2.13.1":
   "integrity" "sha512-hW454X7sjuiBN+lobqw63pmT3boAmTl5OP6zQLq83iEe4T6PcHZ9lxzgCrebtgmutY8cJfq9rM2dOUVh9WBcww=="
