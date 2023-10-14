@@ -42,6 +42,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import AuthNavigator from './app/navigation/AuthNavigator';
 import navigationTheme from './app/navigation/navigationTheme';
 import AppNavigator from './app/navigation/AppNavigator';
+import NetInfo from '@react-native-community/netinfo';
 
 // const categories = [
 //   { label: "Furniture", value: 1 },
@@ -136,16 +137,17 @@ export default function App() {
     </Tab.Navigator>
   )
 
-  return (
-    <GestureHandlerRootView style={{flex: 1}}>
-      <NavigationContainer theme={navigationTheme}>
-        {/* <StackNavigator /> */}
-        {/* <TabNavigator/> */}
-        {/* <AuthNavigator /> */}
-        <AppNavigator/>
-      </NavigationContainer>
-    </GestureHandlerRootView>
-  );
+  // return (
+  //   // <GestureHandlerRootView style={{flex: 1}}>
+  //   //   <NavigationContainer theme={navigationTheme}>
+  //   //     {/* <StackNavigator /> */}
+  //   //     {/* <TabNavigator/> */}
+  //   //     {/* <AuthNavigator /> */}
+  //   //     <AppNavigator/>
+  //   //   </NavigationContainer>
+  //   // </GestureHandlerRootView>
+  // );
+  return null;
 }
 
 // const styles = StyleSheet.create({
