@@ -138,29 +138,29 @@ export default function App() {
     </Tab.Navigator>
   )
 
-  // return (
-  //   // <GestureHandlerRootView style={{flex: 1}}>
-  //   //   <NavigationContainer theme={navigationTheme}>
-  //   //     {/* <StackNavigator /> */}
-  //   //     {/* <TabNavigator/> */}
-  //   //     {/* <AuthNavigator /> */}
-  //   //     <AppNavigator/>
-  //   //   </NavigationContainer>
-  //   // </GestureHandlerRootView>
-  // );
+  return (
+    <GestureHandlerRootView style={{flex: 1}}>
+      <NavigationContainer theme={navigationTheme}>
+        {/* <StackNavigator /> */}
+        {/* <TabNavigator/> */}
+        {/* <AuthNavigator /> */}
+        <AppNavigator/>
+      </NavigationContainer>
+    </GestureHandlerRootView>
+  );
 
-  const demo = async () => {
-    try {
-      await AsyncStorage.setItem('person', JSON.stringify({ id: 1 }))
-      const value = await AsyncStorage.getItem('person');
-      const person = JSON.parse(value);
-      console.log(person)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  demo()
-  return null;
+  // const demo = async () => {
+  //   try {
+  //     await AsyncStorage.setItem('person', JSON.stringify({ id: 1 }))
+  //     const value = await AsyncStorage.getItem('person');
+  //     const person = JSON.parse(value);
+  //     console.log(person)
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
+  // demo()
+  // return null;
 }
 
 // const styles = StyleSheet.create({
