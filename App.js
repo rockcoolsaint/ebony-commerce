@@ -46,6 +46,8 @@ import NetInfo, { useNetInfo } from '@react-native-community/netinfo';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import OfflineNotice from './app/components/OfflineNotice';
 import AuthContext from './app/auth/context';
+import authStorage from './app/auth/storage';
+import jwtDecode from 'jwt-decode';
 
 // const categories = [
 //   { label: "Furniture", value: 1 },
@@ -55,13 +57,16 @@ import AuthContext from './app/auth/context';
 
 export default function App() {
   const [user, setUser] = useState();
-  // const handleAdd = uri => {
-  //   setImageUris([...imageUris, uri]);
-  // }
 
-  // const handleRemove = uri => {
-  //   setImageUris(imageUris.filter(imageUri => imageUri !== uri))
-  // }
+  const restoreToken = async () => {
+    const token = await authStorage.getToken();
+    if (!token) return;
+    setUser(jwtDecode(token));
+  }
+
+  useEffect(() => {
+    restoreToken();
+  }, []);
 
   const Link = () => {
     const navigation = useNavigation();
