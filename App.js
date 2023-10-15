@@ -45,6 +45,7 @@ import AppNavigator from './app/navigation/AppNavigator';
 import NetInfo, { useNetInfo } from '@react-native-community/netinfo';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import OfflineNotice from './app/components/OfflineNotice';
+import AuthContext from './app/auth/context';
 
 // const categories = [
 //   { label: "Furniture", value: 1 },
@@ -53,11 +54,7 @@ import OfflineNotice from './app/components/OfflineNotice';
 // ]
 
 export default function App() {
-  // const [firstName, setFirstName] = useState('');
-  // const [isNew, setIsNew] = useState(false);
-  // const [category, setCategory] = useState();
-  // const [imageUris, setImageUris] = useState([]);
-
+  const [user, setUser] = useState();
   // const handleAdd = uri => {
   //   setImageUris([...imageUris, uri]);
   // }
@@ -141,13 +138,15 @@ export default function App() {
 
   return (
     <GestureHandlerRootView style={{flex: 1}}>
-      <OfflineNotice />
-      <NavigationContainer theme={navigationTheme}>
-        {/* <StackNavigator /> */}
-        {/* <TabNavigator/> */}
-        <AuthNavigator />
-        {/* <AppNavigator/> */}
-      </NavigationContainer>
+      <AuthContext.Provider value={{ user, setUser }}>
+        <OfflineNotice />
+        <NavigationContainer theme={navigationTheme}>
+          {/* <StackNavigator /> */}
+          {/* <TabNavigator/> */}
+          {user ? <AppNavigator /> : <AuthNavigator />}
+          {/* <AppNavigator/> */}
+        </NavigationContainer>
+      </AuthContext.Provider>
     </GestureHandlerRootView>
   );
 
