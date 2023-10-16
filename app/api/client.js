@@ -2,9 +2,15 @@ import axios from "axios"
 import { create } from "apisauce";
 import cache from "../../utility/cache";
 
+// hosted url
 const apiClient = create({
-  baseURL: 'http://192.168.8.159:9000/api',
+  baseURL: 'https://donewithapi.onrender.com/api',
 });
+
+// development
+// const apiClient = create({
+//   baseURL: 'http://192.168.8.159:9000/api',
+// });
 
 const get = apiClient.get;
 apiClient.get = async (url, params, axiosConfig) => {
