@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "469910251968",
+    "project_id": "donewith-1ad09",
+    "storage_bucket": "donewith-1ad09.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469910251968:android:5037e7191fd407a9a1c025",
+        "android_client_info": {
+          "package_name": "com.rockcoolsaint.donewith"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPsRWkAiXBAVW2OYlp-0LY_rQxJ84xnWc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
