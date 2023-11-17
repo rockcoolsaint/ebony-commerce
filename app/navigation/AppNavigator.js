@@ -52,8 +52,13 @@ const AppNavigator = () => {
     registerForPushNotificationsAsync().then(token => setExpoPushToken(token));
     // console.log("=====register push token======")
     notificationListener.current = Notifications.addNotificationReceivedListener(notification => {
+      console.log("==============")
+      console.log(notification)
+      console.log("==============")
       setNotification(notification);
     });
+
+
 
     responseListener.current = Notifications.addNotificationResponseReceivedListener(response => {
       console.log(response);
@@ -151,7 +156,7 @@ async function registerForPushNotificationsAsync() {
     // Learn more about projectId:
     // https://docs.expo.dev/push-notifications/push-notifications-setup/#configure-projectid
     token = (await Notifications.getExpoPushTokenAsync({ 'projectId': Constants.expoConfig?.extra?.eas.projectId })).data;
-    console.log(token);
+    expoPushTokensApi.register(token);
   } else {
     alert('Must use physical device for Push Notifications');
   }
