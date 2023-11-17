@@ -2,10 +2,11 @@ import axios from "axios"
 import { create } from "apisauce";
 import cache from "../../utility/cache";
 import authStorage from "../auth/storage";
+import settings from "../config/settings";
 
 // hosted url
 const apiClient = create({
-  baseURL: 'https://donewithapi.onrender.com/api',
+  baseURL: settings.apiUrl,
 });
 
 // development
