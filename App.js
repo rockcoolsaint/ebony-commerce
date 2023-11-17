@@ -50,6 +50,7 @@ import authStorage from './app/auth/storage';
 // import jwtDecode from 'jwt-decode';
 import AppLoading from 'expo-app-loading';
 import * as SplashScreen from 'expo-splash-screen';
+import { navigationRef } from './app/navigation/rootNavigation';
 
 // const categories = [
 //   { label: "Furniture", value: 1 },
@@ -109,7 +110,7 @@ export default function App() {
     <GestureHandlerRootView style={{flex: 1}} onLayout={onLayoutRootView} >
       <AuthContext.Provider value={{ user, setUser }}>
         <OfflineNotice />
-        <NavigationContainer theme={navigationTheme}>
+        <NavigationContainer ref={navigationRef} theme={navigationTheme}>
           {/* <StackNavigator /> */}
           {/* <TabNavigator/> */}
           {user ? <AppNavigator /> : <AuthNavigator />}
