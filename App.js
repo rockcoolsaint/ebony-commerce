@@ -51,7 +51,7 @@ import authStorage from './app/auth/storage';
 import AppLoading from 'expo-app-loading';
 import * as SplashScreen from 'expo-splash-screen';
 import { navigationRef } from './app/navigation/rootNavigation';
-import logger from './utility/logger';
+// import logger from './utility/logger';
 
 
 // const categories = [
