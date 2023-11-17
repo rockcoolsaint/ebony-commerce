@@ -51,6 +51,8 @@ import authStorage from './app/auth/storage';
 import AppLoading from 'expo-app-loading';
 import * as SplashScreen from 'expo-splash-screen';
 import { navigationRef } from './app/navigation/rootNavigation';
+import logger from './utility/logger';
+
 
 // const categories = [
 //   { label: "Furniture", value: 1 },
@@ -59,6 +61,8 @@ import { navigationRef } from './app/navigation/rootNavigation';
 // ]
 
 SplashScreen.preventAutoHideAsync();
+
+logger.start();
 
 export default function App() {
   const [user, setUser] = useState();
