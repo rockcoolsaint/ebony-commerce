@@ -27,7 +27,8 @@
         "backgroundColor": "#FFFFFF"
       },
       "googleServicesFile": "./google-services.json",
-      "package": "com.rockcoolsaint.donewith"
+      "package": "com.rockcoolsaint.donewith",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"
