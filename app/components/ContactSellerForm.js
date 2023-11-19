@@ -3,7 +3,7 @@ import { Alert, Keyboard } from "react-native";
 import { Notifications } from "expo";
 import * as Yup from "yup";
 
-import { Form, FormField, SubmitButton } from "./forms";
+import { AppForm as Form, AppFormField as FormField, SubmitButton } from "./forms";
 import messagesApi from "../api/messages";
 
 function ContactSellerForm({ listing }) {
