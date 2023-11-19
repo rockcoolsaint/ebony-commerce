@@ -62,7 +62,7 @@ import { navigationRef } from './app/navigation/rootNavigation';
 
 SplashScreen.preventAutoHideAsync();
 
-logger.start();
+// logger.start();
 
 export default function App() {
   const [user, setUser] = useState();
