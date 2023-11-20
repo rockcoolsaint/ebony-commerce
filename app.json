@@ -28,7 +28,7 @@
       },
       "googleServicesFile": "./google-services.json",
       "package": "com.rockcoolsaint.donewith",
-      "versionCode": 2
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"

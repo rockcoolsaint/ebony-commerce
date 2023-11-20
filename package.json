@@ -7,7 +7,7 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eas-build-pre-install": "echo $ANDROID_FILE_SECRET | base64 --decode ? ./google-services.json"
+    "eas-build-pre-install": "echo $ANDROID_FILE_SECRET | base64 --decode --ignore-garbage > ./google-services.json"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
