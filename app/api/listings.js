@@ -21,9 +21,10 @@ const addListing = async (listing, onUploadProgress) => {
     data.append("location", JSON.stringify(listing.location));
 
   return await client.post(endpoint, data, {
-    transformRequest: [(data, headers) => {
-      return data
-    }],
+    headers: { "Content-Type": "multipart/form-data" },
+    // transformRequest: [(data, headers) => {
+    //   return data
+    // }],
     onUploadProgress: progress =>
       onUploadProgress(progress.loaded / progress.total),
   });
