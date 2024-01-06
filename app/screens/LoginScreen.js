@@ -4,9 +4,10 @@ import * as Yup from 'yup';
 import {ErrorMessage, AppForm, AppFormField, SubmitButton} from '../components/forms';
 import Screen from '../components/Screen';
 import authApi from '../api/auth';
+import useAuth from '../auth/useAuth';
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string().required().email().label("Email"),
+  username: Yup.string().required().label("Username"),
   password: Yup.string().required().min(4).label("Password")
 })
 
@@ -14,11 +15,11 @@ function LoginScreen(props) {
   const { logIn } = useAuth();
   const [loginFailed, setLoginFailed] = useState(false);
 
-  const handleSubmit = async ({ email, password }) => {
-    const result = await authApi.login(email, password);
+  const handleSubmit = async ({ username, password }) => {
+    const result = await authApi.login(username, password);
     if (!result.ok) return setLoginFailed(true);
     setLoginFailed(false);
-    logIn(result.data);
+    logIn(result.data.token);
   }
 
   return (
@@ -26,7 +27,7 @@ function LoginScreen(props) {
       <Image style={styles.logo} source={require("../assets/logo-red.png")} />
 
       <AppForm
-        initialValues={{ email: '', password: '' }}
+        initialValues={{ username: '', password: '' }}
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
@@ -34,11 +35,9 @@ function LoginScreen(props) {
         <AppFormField
           autoCapitalize="none"
           autoCorrect={false}
-          icon="email"
-          keyboardType="email-address"
-          name="email"
-          placeholder="Email"
-          textContentType="emailAddress"
+          icon="account"
+          name="username"
+          placeholder="Username"
         />
         <AppFormField
           autoCapitalize="none"

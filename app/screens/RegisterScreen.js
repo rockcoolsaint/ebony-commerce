@@ -9,9 +9,11 @@ import useAuth from "../auth/useAuth";
 import authApi from "../api/auth";
 import useApi from "../hooks/useApi";
 import ActivityIndicator from "../components/ActivityIndicator";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 const validationSchema = Yup.object().shape({
-  name: Yup.string().required().label("Name"),
+  firstname: Yup.string().required().label("First Name"),
+  lastname: Yup.string().required().label("Last Name"),
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(4).label("Password"),
 });
@@ -24,7 +26,6 @@ function RegisterScreen() {
 
   const handleSubmit = async (userInfo) => {
     const result = await registerApi.request(userInfo)
-
     if (!result.ok) {
       if (result.data) setError(result.data.error);
       else {
@@ -33,12 +34,11 @@ function RegisterScreen() {
       }
       return;
     }
-
     const { data: authToken } = await loginApi.request(
       userInfo.email,
       userInfo.password
     );
-    auth.logIn(authToken);
+    auth.logIn(authToken.token);
   };
 
   return (
@@ -46,7 +46,7 @@ function RegisterScreen() {
       <ActivityIndicator visible={registerApi.loading || loginApi.loading} />
       <Screen style={styles.container}>
         <Form
-          initialValues={{ name: "", email: "", password: "" }}
+          initialValues={{ firstname: "", lastname: "", email: "", password: "" }}
           onSubmit={handleSubmit}
           validationSchema={validationSchema}
         >
@@ -54,8 +54,14 @@ function RegisterScreen() {
           <FormField
             autoCorrect={false}
             icon="account"
-            name="name"
-            placeholder="Name"
+            name="firstname"
+            placeholder="FirstName"
+          />
+          <FormField
+            autoCorrect={false}
+            icon="account"
+            name="lastname"
+            placeholder="LastName"
           />
           <FormField
             autoCapitalize="none"

@@ -1,6 +1,6 @@
 import client from "./client";
 
-const endpoint = '/listings';
+const endpoint = '/products?limit=10';
 const getListings = () => client.get(endpoint);
 
 const addListing = async (listing, onUploadProgress) => {

@@ -11,7 +11,7 @@ const apiClient = create({
 
 // development
 // const apiClient = create({
-//   baseURL: 'http://192.168.8.159:9000/api',
+//   baseURL: 'https://fakestoreapi.com',
 // });
 
 apiClient.addAsyncRequestTransform(async (request) => {

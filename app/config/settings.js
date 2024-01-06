@@ -2,13 +2,13 @@ import Constants from 'expo-constants';
 
 const settings = {
   dev: {
-    apiUrl: 'https://donewithapi.onrender.com/api'
+    apiUrl: 'https://fakestoreapi.com'
   },
   stanging: {
-    apiUrl: 'https://donewithapi.onrender.com/api'
+    apiUrl: 'https://fakestoreapi.com'
   },
   prod: {
-    apiUrl: 'https://donewithapi.onrender.com/api'
+    apiUrl: 'https://fakestoreapi.com'
   }
 }
 

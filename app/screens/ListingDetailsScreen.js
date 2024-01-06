@@ -13,17 +13,17 @@ function ListingDetailsScreen({ route }) {
       behavior="position"
       keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 100}
     >
-      <Image style={styles.image} preview={{uri: listing.images[0].thumbnailUrl}} tint="light" uri={listing.images[0].url} />
+      <Image style={styles.image} preview={{uri: listing.image}} tint="light" uri={listing.image} />
       <View style={styles.detailsContainer}>
         <AppText style={styles.title}>{listing.title}</AppText>
         <AppText style={styles.price}>${listing.price}</AppText>
-        <View style={styles.userContainer}>
+        {/* <View style={styles.userContainer}>
           <ListItem
             image={require("../assets/mosh.jpg")}
             title="Inno Cent"
             subTitle="5 Listings"
           />
-        </View>
+        </View> */}
         <ContactSellerForm listing={listing} />
       </View>
     </KeyboardAvoidingView>
